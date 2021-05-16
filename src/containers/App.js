@@ -9,14 +9,14 @@ import ErrorBoundry from '../components/ErrorBoundry'
 function App() {
    const [robots, setRobots] = useState([])
    const [searchfield, setSearchfield] = useState('')
-   const [count, setCount] = useState(0);
+  
  
     useEffect(() => {
          fetch('https://jsonplaceholder.typicode.com/users')
             .then(response=> response.json())
             .then(users => { setRobots(users)});
-            console.log(count)
-    }, [count]) //only run if count changes!
+            
+    }) //only run if count changes!
     
     const onSearchChange = (e) => { 
         
@@ -32,7 +32,6 @@ function App() {
         
             <div className="tc">
                 <h1 className="f1">RoboFreinds</h1>
-                <button onClick={() => setCount(count + 1)}>Click Me!</button>
                 <SearchBox onSearchChange={onSearchChange}/>
                 <Scroll>
                     <ErrorBoundry>
